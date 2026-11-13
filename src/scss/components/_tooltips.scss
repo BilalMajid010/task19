@@ -1,0 +1,5 @@
+@use "../abstracts" as *;
+.overlay-demo { display: flex; align-items: center; gap: 1rem; }
+.tooltip { position: relative; display: inline-flex; }
+.tooltip__content { position: absolute; z-index: 5; left: 50%; bottom: calc(100% + 10px); width: max-content; max-width: 220px; padding: 0.5rem 0.65rem; border-radius: 6px; color: white; background: #172033; font-size: 0.68rem; opacity: 0; pointer-events: none; transform: translate(-50%, 4px); transition: opacity 150ms ease, transform 150ms ease; }
+.tooltip:hover .tooltip__content, .tooltip:focus-within .tooltip__content { opacity: 1; transform: translate(-50%, 0); }

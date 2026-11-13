@@ -1,0 +1,18 @@
+@use "../abstracts" as *;
+.alert { display: flex; align-items: flex-start; gap: 0.75rem; margin: 0.65rem 0; padding: 0.85rem 0.9rem; border: 1px solid transparent; border-radius: 9px; }
+.alert__icon { width: 22px; height: 22px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; font-size: 0.75rem; font-weight: 800; }
+.alert strong { display: block; font-size: 0.78rem; }
+.alert p { margin-top: 0.15rem; font-size: 0.72rem; opacity: 0.85; }
+.alert__close { margin-left: auto; border: 0; color: inherit; background: transparent; font-size: 1.15rem; opacity: 0.65; }
+.alert--success { color: var(--color-success); border-color: color-mix(in srgb, var(--color-success), transparent 78%); background: color-mix(in srgb, var(--color-success), transparent 94%); }
+.alert--warning { color: var(--color-warning); border-color: color-mix(in srgb, var(--color-warning), transparent 78%); background: color-mix(in srgb, var(--color-warning), transparent 94%); }
+.alert--danger { color: var(--color-danger); border-color: color-mix(in srgb, var(--color-danger), transparent 78%); background: color-mix(in srgb, var(--color-danger), transparent 94%); }
+.alert--info { color: var(--color-info); border-color: color-mix(in srgb, var(--color-info), transparent 78%); background: color-mix(in srgb, var(--color-info), transparent 94%); }
+.badge--primary { color: var(--color-primary); background: color-mix(in srgb, var(--color-primary), transparent 88%); }
+.badge--success { color: var(--color-success); background: color-mix(in srgb, var(--color-success), transparent 88%); }
+.badge--warning { color: var(--color-warning); background: color-mix(in srgb, var(--color-warning), transparent 88%); }
+.badge--danger { color: var(--color-danger); background: color-mix(in srgb, var(--color-danger), transparent 88%); }
+.badge--info { color: var(--color-info); background: color-mix(in srgb, var(--color-info), transparent 88%); }
+.badge--neutral { color: var(--color-muted); background: var(--color-background); }
+.notification-badge { min-width: 22px; height: 22px; display: inline-grid; place-items: center; border-radius: 50%; color: white; background: var(--color-danger); font-size: 0.68rem; font-weight: 800; }
+.badge-row { padding-top: 1rem; border-top: 1px solid var(--color-border); }

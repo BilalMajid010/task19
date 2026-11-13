@@ -1,0 +1,9 @@
+@use "../abstracts" as *;
+.progress-panel { display: grid; gap: 1.3rem; }
+.progress-item > div:first-child { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.75rem; }
+.progress-item > div:first-child span { color: var(--color-muted); }
+.progress { height: 8px; overflow: hidden; border-radius: 99px; background: var(--color-surface-strong); }
+.progress > span { height: 100%; display: block; border-radius: inherit; background: var(--color-primary); }
+.progress--success > span { background: var(--color-success); }
+.progress--warning > span { background: var(--color-warning); }
+.progress--danger > span { background: var(--color-danger); }

@@ -1,0 +1,25 @@
+@use "../abstracts" as *;
+.card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; container-type: inline-size; }
+.ui-card { min-width: 0; padding: 1.3rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-sm); }
+.profile-card { display: grid; justify-items: start; gap: 0.65rem; }
+.avatar { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 14px; color: #fff; background: linear-gradient(135deg, #7667ed, #35b7ae); font-weight: 800; }
+.profile-card h3, .pricing-card h3 { font-size: 1rem; }
+.profile-card__bio { color: var(--color-muted); font-size: 0.76rem; line-height: 1.65; }
+.badge { display: inline-flex; align-items: center; padding: 0.28rem 0.55rem; border-radius: 99px; font-size: 0.65rem; font-weight: 750; }
+.profile-card .badge { justify-self: start; }
+.stat-card { display: flex; flex-direction: column; gap: 0.8rem; }
+.stat-card__top { display: flex; justify-content: space-between; color: var(--color-muted); font-size: 0.76rem; }
+.stat-card > strong { font-size: 2rem; letter-spacing: -0.06em; }
+.stat-icon { color: var(--color-primary); }
+.stat-card__trend { color: var(--color-success); font-size: 0.72rem; font-weight: 700; }
+.stat-card__trend span { color: var(--color-muted); font-weight: 400; }
+.mini-bars { height: 45px; display: flex; align-items: end; gap: 5px; margin-top: auto; }
+.mini-bars i { flex: 1; height: 40%; border-radius: 3px 3px 0 0; background: color-mix(in srgb, var(--color-primary), transparent 65%); }
+.mini-bars i:nth-child(3n) { height: 80%; }.mini-bars i:nth-child(4n) { height: 60%; }.mini-bars i:nth-child(5n) { height: 95%; }
+.pricing-card { display: flex; flex-direction: column; align-items: flex-start; gap: 0.65rem; }
+.price { margin: 0.4rem 0; font-size: 2rem; font-weight: 800; letter-spacing: -0.06em; }
+.price span { color: var(--color-muted); font-size: 0.72rem; font-weight: 500; letter-spacing: 0; }
+.pricing-card ul { display: grid; gap: 0.5rem; width: 100%; margin: 0.4rem 0 1rem; padding: 0; list-style: none; color: var(--color-muted); font-size: 0.74rem; }
+.pricing-card li::first-letter { color: var(--color-success); }
+@container (max-width: 720px) { .card-grid { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .card-grid { grid-template-columns: 1fr; } }

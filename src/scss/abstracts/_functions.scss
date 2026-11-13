@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "tokens";
+
+@function space($step) {
+  @if map.has-key(tokens.$spacing-scale, $step) {
+    @return map.get(tokens.$spacing-scale, $step);
+  }
+  @error "Unknown spacing token: #{$step}";
+}
+
+@function radius($size) {
+  @if map.has-key(tokens.$radius-scale, $size) {
+    @return map.get(tokens.$radius-scale, $size);
+  }
+  @error "Unknown radius token: #{$size}";
+}

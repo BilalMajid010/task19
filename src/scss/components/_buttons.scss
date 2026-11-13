@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+.button { @include flex-center(0.45rem); min-height: 40px; padding: 0.6rem 1rem; border: 1px solid transparent; border-radius: 8px; font-size: 0.8rem; font-weight: 650; line-height: 1; transition: background 150ms ease, border-color 150ms ease, transform 150ms ease; }
+.button:hover:not(:disabled) { transform: translateY(-1px); }
+.button:active:not(:disabled) { transform: translateY(0); }
+.button:disabled { opacity: 0.45; }
+.button--primary { color: #fff; background: var(--color-primary); }
+.button--primary:hover:not(:disabled) { background: var(--color-primary-hover); }
+.button--secondary { color: #fff; background: var(--color-secondary); }
+.button--outline { border-color: var(--color-border); color: var(--color-text); background: transparent; }
+.button--outline:hover { background: var(--color-background); }
+.button--ghost { color: var(--color-muted); background: transparent; }
+.button--ghost:hover { color: var(--color-primary); background: color-mix(in srgb, var(--color-primary), transparent 93%); }
+.button--danger { color: #fff; background: var(--color-danger); }
+.button--success { color: #fff; background: var(--color-success); }
+.button--sm { min-height: 32px; padding: 0.45rem 0.7rem; font-size: 0.72rem; }
+.button--lg { min-height: 48px; padding: 0.8rem 1.3rem; font-size: 0.9rem; }
+.button--block { width: 100%; }
+.button__spinner { width: 12px; height: 12px; border: 2px solid rgb(255 255 255 / 40%); border-top-color: white; border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

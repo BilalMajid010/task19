@@ -1,0 +1,8 @@
+@use "../abstracts" as *;
+@each $name, $value in $spacing-scale {
+  .mt-#{$name} { margin-top: $value; }
+  .mb-#{$name} { margin-bottom: $value; }
+  .p-#{$name} { padding: $value; }
+}
+.text-center { text-align: center; }
+.w-full { width: 100%; }

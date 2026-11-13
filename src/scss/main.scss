@@ -1,0 +1,45 @@
+@use "abstracts" as *;
+
+@layer reset, base, layout, components, themes, utilities;
+
+@layer reset {
+  @import "base/reset";
+}
+
+@layer base {
+  @import "base/base";
+  @import "base/typography";
+}
+
+@layer layout {
+  @import "layout/header";
+  @import "layout/sidebar";
+  @import "layout/container";
+}
+
+@layer components {
+  @import "components/buttons";
+  @import "components/forms";
+  @import "components/cards";
+  @import "components/alerts";
+  @import "components/badges";
+  @import "components/progress";
+  @import "components/tooltips";
+  @import "components/modal";
+}
+
+@layer themes {
+  @import "themes/themes";
+}
+
+@layer utilities {
+  @import "utilities/utilities";
+}
+
+@layer components {
+  .component-example {
+    padding: 1rem;
+    &__title { font-weight: 700; }
+    &:hover { border-color: var(--color-primary); }
+  }
+}

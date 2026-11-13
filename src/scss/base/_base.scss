@@ -1,0 +1,51 @@
+@use "../abstracts" as *;
+
+:root {
+  color-scheme: light;
+  --color-primary: #5546e8;
+  --color-primary-hover: #4435d3;
+  --color-secondary: #64748b;
+  --color-accent: #0ea5a4;
+  --color-background: #f7f8fc;
+  --color-surface: #ffffff;
+  --color-surface-strong: #e8eaf3;
+  --color-text: #172033;
+  --color-muted: #778197;
+  --color-border: #e6e8f0;
+  --color-success: #15966a;
+  --color-warning: #d78a16;
+  --color-danger: #dc4c55;
+  --color-info: #2584c7;
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+  --space-4: 1rem; --space-6: 1.5rem; --space-8: 2rem; --space-12: 3rem;
+  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgb(15 23 42 / 7%);
+  --shadow-md: 0 8px 24px rgb(15 23 42 / 8%);
+  --shadow-lg: 0 18px 48px rgb(15 23 42 / 12%);
+  --container-width: 1120px;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-width: 320px;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+a { color: inherit; text-decoration: none; }
+button { color: inherit; }
+::selection { background: color-mix(in srgb, var(--color-primary), transparent 80%); }
+:focus-visible { @include focus-ring; }
+
+@supports (backdrop-filter: blur(10px)) {
+  .topbar { backdrop-filter: blur(14px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

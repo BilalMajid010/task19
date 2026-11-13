@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A reusable CSS design system and UI component library." />
+    <meta name="theme-color" content="#f8fafc" />
+    <title>Forma — Design System</title>
+    <script>
+      (() => {
+        const saved = localStorage.getItem("forma-theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = saved || (systemDark ? "dark" : "light");
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#overview" aria-label="Forma home">
+          <span class="brand__mark">F</span>
+          <span>forma<span class="brand__suffix">.system</span></span>
+        </a>
+        <div class="topbar__actions">
+          <label class="search">
+            <span aria-hidden="true">⌕</span>
+            <input id="component-search" type="search" placeholder="Search components..." aria-label="Search components" />
+            <kbd>⌘ K</kbd>
+          </label>
+          <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+            <span id="theme-icon" aria-hidden="true">☾</span>
+          </button>
+          <a class="button button--primary button--sm topbar__github" href="#documentation">Documentation</a>
+        </div>
+      </header>
+
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar__group">
+          <p class="sidebar__heading">GET STARTED</p>
+          <a class="sidebar__link is-active" href="#overview">Overview</a>
+          <a class="sidebar__link" href="#tokens">Design tokens</a>
+          <a class="sidebar__link" href="#typography">Typography</a>
+        </div>
+        <div class="sidebar__group">
+          <p class="sidebar__heading">COMPONENTS</p>
+          <a class="sidebar__link" href="#buttons">Buttons</a>
+          <a class="sidebar__link" href="#forms">Form controls</a>
+          <a class="sidebar__link" href="#cards">Cards</a>
+          <a class="sidebar__link" href="#alerts">Alerts & badges</a>
+          <a class="sidebar__link" href="#progress">Progress bars</a>
+          <a class="sidebar__link" href="#overlays">Tooltips & modal</a>
+        </div>
+        <div class="sidebar__group">
+          <p class="sidebar__heading">FOUNDATIONS</p>
+          <a class="sidebar__link" href="#themes">Theming</a>
+          <a class="sidebar__link" href="#architecture">CSS architecture</a>
+          <a class="sidebar__link" href="#documentation">Usage guidelines</a>
+        </div>
+        <div class="sidebar__note">
+          <span class="status-dot"></span>
+          <span>Version 1.0.0<br /><small>All systems operational</small></span>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <section class="hero section-anchor" id="overview">
+          <div class="eyebrow"><span class="eyebrow__line"></span> DESIGN SYSTEM · VERSION 1.0</div>
+          <h1>Build consistent.<br /><span class="text-gradient">Build with purpose.</span></h1>
+          <p class="hero__description">Forma is a practical, reusable UI foundation for building clear, consistent and accessible digital experiences.</p>
+          <div class="hero__actions">
+            <a href="#buttons" class="button button--primary">Explore components <span aria-hidden="true">↗</span></a>
+            <a href="#tokens" class="button button--outline">View foundations</a>
+          </div>
+          <div class="hero__meta"><span><i class="status-dot"></i> 12 component groups</span><span>·</span><span>Light & dark themes</span><span>·</span><span>Responsive by design</span></div>
+        </section>
+
+        <section class="content-section section-anchor" id="tokens">
+          <div class="section-heading">
+            <div><p class="eyebrow">01 / FOUNDATIONS</p><h2>Design tokens</h2></div>
+            <p>Reusable values that keep the interface visually consistent.</p>
+          </div>
+          <div class="demo-grid demo-grid--two">
+            <article class="panel">
+              <div class="panel__heading"><div><h3>Color palette</h3><p>Semantic colors adapt to the active theme.</p></div><span class="component-tag">COLORS</span></div>
+              <div class="swatch-grid">
+                <div class="swatch"><span style="--swatch:var(--primary)"></span><b>Primary</b><small>--color-primary</small></div>
+                <div class="swatch"><span style="--swatch:var(--secondary)"></span><b>Secondary</b><small>--color-secondary</small></div>
+                <div class="swatch"><span style="--swatch:var(--accent)"></span><b>Accent</b><small>--color-accent</small></div>
+                <div class="swatch"><span style="--swatch:var(--success)"></span><b>Success</b><small>--color-success</small></div>
+                <div class="swatch"><span style="--swatch:var(--warning)"></span><b>Warning</b><small>--color-warning</small></div>
+                <div class="swatch"><span style="--swatch:var(--danger)"></span><b>Danger</b><small>--color-danger</small></div>
+                <div class="swatch"><span style="--swatch:var(--info)"></span><b>Information</b><small>--color-info</small></div>
+                <div class="swatch"><span style="--swatch:var(--surface-strong)"></span><b>Surface</b><small>--color-surface</small></div>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel__heading"><div><h3>Spacing scale</h3><p>Predictable spacing from 4px to 48px.</p></div><span class="component-tag">SPACING</span></div>
+              <div class="spacing-list">
+                <div><code>space-1 · 4px</code><span style="width:4px"></span></div>
+                <div><code>space-2 · 8px</code><span style="width:8px"></span></div>
+                <div><code>space-3 · 12px</code><span style="width:12px"></span></div>
+                <div><code>space-4 · 16px</code><span style="width:16px"></span></div>
+                <div><code>space-6 · 24px</code><span style="width:24px"></span></div>
+                <div><code>space-8 · 32px</code><span style="width:32px"></span></div>
+                <div><code>space-12 · 48px</code><span style="width:48px"></span></div>
+              </div>
+            </article>
+          </div>
+          <article class="panel panel--spaced">
+            <div class="panel__heading"><div><h3>Radius & elevation</h3><p>Consistent corners and depth across components.</p></div></div>
+            <div class="token-examples">
+              <div><span class="radius-sample radius-sample--sm"></span><b>Small</b><small>6px</small></div>
+              <div><span class="radius-sample radius-sample--md"></span><b>Medium</b><small>10px</small></div>
+              <div><span class="radius-sample radius-sample--lg"></span><b>Large</b><small>16px</small></div>
+              <div><span class="shadow-sample shadow-sample--sm"></span><b>Shadow sm</b><small>Subtle</small></div>
+              <div><span class="shadow-sample shadow-sample--md"></span><b>Shadow md</b><small>Raised</small></div>
+              <div><span class="shadow-sample shadow-sample--lg"></span><b>Shadow lg</b><small>Floating</small></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="content-section section-anchor" id="typography">
+          <div class="section-heading"><div><p class="eyebrow">02 / FOUNDATIONS</p><h2>Typography</h2></div><p>A clear type hierarchy improves readability and structure.</p></div>
+          <article class="panel type-specimen">
+            <div class="type-row"><span class="type-label">Display / 48px</span><span class="type-display">Make it meaningful.</span></div>
+            <div class="type-row"><span class="type-label">Heading 1 / 36px</span><h1 class="heading-1">Design with clarity</h1></div>
+            <div class="type-row"><span class="type-label">Heading 2 / 28px</span><h2 class="heading-2">A thoughtful system</h2></div>
+            <div class="type-row"><span class="type-label">Heading 3 / 20px</span><h3 class="heading-3">Component foundations</h3></div>
+            <div class="type-row"><span class="type-label">Body / 16px</span><p class="body-text">Good interfaces make complex tasks feel simple. Consistent typography helps people scan, understand and act.</p></div>
+            <div class="type-row"><span class="type-label">Label / 13px</span><span class="text-label">ACCOUNT INFORMATION</span></div>
+            <div class="type-row"><span class="type-label">Caption / 12px</span><span class="text-caption">Last updated a few minutes ago</span></div>
+            <div class="type-row"><span class="type-label">Muted</span><span class="text-muted">Supporting information appears in muted text.</span></div>
+            <div class="type-row"><span class="type-label">Link</span><a href="#documentation" class="text-link">Read the guidelines ↗</a></div>
+            <div class="type-row"><span class="type-label">Blockquote</span><blockquote>“Simplicity boils down to two steps: identify the essential. Eliminate the rest.”</blockquote></div>
+          </article>
+        </section>
+
+        <section class="content-section section-anchor" id="buttons">
+          <div class="section-heading"><div><p class="eyebrow">03 / COMPONENTS</p><h2>Buttons</h2></div><p>Buttons communicate actions and their relative importance.</p></div>
+          <article class="panel">
+            <div class="panel__heading"><div><h3>Button variants</h3><p>Use one clear primary action per context.</p></div><span class="component-tag">.button</span></div>
+            <div class="component-row"><button class="button button--primary">Primary action</button><button class="button button--secondary">Secondary</button><button class="button button--outline">Outline</button><button class="button button--ghost">Ghost</button></div>
+            <div class="component-row"><button class="button button--danger">Delete item</button><button class="button button--success">Approve</button><button class="button button--primary" disabled>Disabled</button><button class="button button--primary" id="loading-button"><span class="button__spinner"></span> Loading</button></div>
+            <div class="component-row component-row--align"><button class="button button--primary button--sm">Small</button><button class="button button--primary">Medium</button><button class="button button--primary button--lg">Large</button></div>
+            <div class="code-caption">HTML usage</div>
+            <pre><code>&lt;button class="button button--primary"&gt;Save changes&lt;/button&gt;
+&lt;button class="button button--outline button--sm"&gt;Cancel&lt;/button&gt;</code></pre>
+          </article>
+        </section>
+
+        <section class="content-section section-anchor" id="forms">
+          <div class="section-heading"><div><p class="eyebrow">04 / COMPONENTS</p><h2>Form controls</h2></div><p>Accessible fields with clear labels, focus and validation states.</p></div>
+          <article class="panel">
+            <div class="panel__heading"><div><h3>Input fields</h3><p>Labels should explain the expected information.</p></div><span class="component-tag">.field</span></div>
+            <form id="demo-form" class="form-grid">
+              <label class="field"><span class="field__label">Full name</span><input class="input" type="text" placeholder="e.g. Alex Morgan" required minlength="2" /><small class="field__hint">Enter your first and last name.</small></label>
+              <label class="field"><span class="field__label">Email address</span><input class="input" type="email" placeholder="alex@example.com" required /><small class="field__hint">We will never share your email.</small></label>
+              <label class="field"><span class="field__label">Password</span><input class="input" type="password" placeholder="At least 8 characters" minlength="8" /><small class="field__hint">Use at least 8 characters.</small></label>
+              <label class="field"><span class="field__label">Department</span><select class="input"><option value="">Select a department</option><option>Engineering</option><option>Design</option><option>Marketing</option></select></label>
+              <label class="field field--full"><span class="field__label">Message</span><textarea class="input textarea" rows="3" placeholder="Write your message..."></textarea></label>
+              <div class="field field--full"><span class="field__label">Preferences</span><label class="choice"><input type="checkbox" checked /><span class="choice__control"></span><span>Send me product updates</span></label><label class="choice"><input type="radio" name="plan" checked /><span class="choice__radio"></span><span>Monthly plan</span></label><label class="choice"><input type="radio" name="plan" /><span class="choice__radio"></span><span>Annual plan</span></label><label class="choice choice--switch"><input type="checkbox" role="switch" /><span class="switch"></span><span>Enable notifications</span></label></div>
+              <div class="field field--full"><button class="button button--primary" type="submit">Submit form</button><span id="form-message" class="form-message" role="status"></span></div>
+            </form>
+            <div class="validation-examples"><label class="field"><span class="field__label">Success state</span><input class="input input--success" value="alex@example.com" /><small class="field__success">Looks good!</small></label><label class="field"><span class="field__label">Error state</span><input class="input input--error" value="not-an-email" aria-invalid="true" /><small class="field__error">Please enter a valid email address.</small></label></div>
+          </article>
+        </section>
+
+        <section class="content-section section-anchor" id="cards">
+          <div class="section-heading"><div><p class="eyebrow">05 / COMPONENTS</p><h2>Cards</h2></div><p>Cards group related information into scannable surfaces.</p></div>
+          <div class="card-grid">
+            <article class="ui-card profile-card"><div class="avatar">AM</div><div><h3>Alex Morgan</h3><p class="text-muted">Product Designer</p></div><span class="badge badge--success">Available</span><p class="profile-card__bio">Designing thoughtful digital experiences through research, systems and collaboration.</p><button class="button button--outline button--sm">View profile</button></article>
+            <article class="ui-card stat-card"><div class="stat-card__top"><span class="stat-card__label">Total revenue</span><span class="stat-icon">↗</span></div><strong>$48,290</strong><span class="stat-card__trend">↑ 12.8% <span>vs last month</span></span><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+            <article class="ui-card pricing-card"><span class="badge badge--info">POPULAR</span><h3>Professional</h3><p class="text-muted">For teams ready to grow.</p><div class="price">$24<span>/ month</span></div><ul><li>✓ Unlimited projects</li><li>✓ Team collaboration</li><li>✓ Priority support</li></ul><button class="button button--primary button--block">Choose plan</button></article>
+          </div>
+          <div class="code-caption">BEM class examples</div><pre><code>.ui-card
+.profile-card
+.profile-card__bio
+.stat-card__trend
+.pricing-card</code></pre>
+        </section>
+
+        <section class="content-section section-anchor" id="alerts">
+          <div class="section-heading"><div><p class="eyebrow">06 / COMPONENTS</p><h2>Alerts & badges</h2></div><p>Communicate status with consistent semantic colors.</p></div>
+          <article class="panel">
+            <div class="alert alert--success"><span class="alert__icon">✓</span><div><strong>Changes saved</strong><p>Your settings have been updated successfully.</p></div><button class="alert__close" aria-label="Dismiss alert">×</button></div>
+            <div class="alert alert--warning"><span class="alert__icon">!</span><div><strong>Attention required</strong><p>Your trial period ends in three days.</p></div><button class="alert__close" aria-label="Dismiss alert">×</button></div>
+            <div class="alert alert--danger"><span class="alert__icon">×</span><div><strong>Something went wrong</strong><p>We could not complete your request. Try again.</p></div><button class="alert__close" aria-label="Dismiss alert">×</button></div>
+            <div class="alert alert--info"><span class="alert__icon">i</span><div><strong>New update available</strong><p>A new version is ready to install.</p></div><button class="alert__close" aria-label="Dismiss alert">×</button></div>
+            <div class="component-row badge-row"><span class="badge badge--primary">Primary</span><span class="badge badge--success">Success</span><span class="badge badge--warning">Warning</span><span class="badge badge--danger">Danger</span><span class="badge badge--info">Information</span><span class="badge badge--neutral">Neutral</span><span class="notification-badge">3</span></div>
+          </article>
+        </section>
+
+        <section class="content-section section-anchor" id="progress">
+          <div class="section-heading"><div><p class="eyebrow">07 / COMPONENTS</p><h2>Progress bars</h2></div><p>Show progress toward a goal or completion of a task.</p></div>
+          <article class="panel progress-panel">
+            <div class="progress-item"><div><b>Project completion</b><span>75%</span></div><div class="progress"><span style="width:75%"></span></div></div>
+            <div class="progress-item"><div><b>Storage used</b><span>42%</span></div><div class="progress progress--success"><span style="width:42%"></span></div></div>
+            <div class="progress-item"><div><b>Monthly target</b><span>90%</span></div><div class="progress progress--warning"><span style="width:90%"></span></div></div>
+            <div class="progress-item"><div><b>Upload failed</b><span>25%</span></div><div class="progress progress--danger"><span style="width:25%"></span></div></div>
+          </article>
+        </section>
+
+        <section class="content-section section-anchor" id="overlays">
+          <div class="section-heading"><div><p class="eyebrow">08 / COMPONENTS</p><h2>Tooltips & modal</h2></div><p>Provide contextual information and focused interactions.</p></div>
+          <article class="panel overlay-demo">
+            <div class="tooltip"><button class="button button--outline">Hover for tooltip</button><span class="tooltip__content" role="tooltip">Helpful contextual information</span></div>
+            <button class="button button--primary" id="open-modal">Open modal</button>
+          </article>
+        </section>
+
+        <section class="content-section section-anchor" id="themes">
+          <div class="section-heading"><div><p class="eyebrow">09 / FOUNDATIONS</p><h2>Theme management</h2></div><p>Theme values are semantic, centralized and updated at runtime.</p></div>
+          <article class="panel theme-panel"><div><span class="theme-preview theme-preview--light">☀</span><h3>Light theme</h3><p class="text-muted">Bright surfaces and dark text.</p></div><div><span class="theme-preview theme-preview--dark">☾</span><h3>Dark theme</h3><p class="text-muted">Dark surfaces and light text.</p></div><div class="theme-panel__action"><p>Use the theme button in the top navigation to switch themes. Your choice is saved in this browser.</p><button class="button button--outline" id="system-theme">Use system preference</button></div></article>
+        </section>
+
+        <section class="content-section section-anchor" id="architecture">
+          <div class="section-heading"><div><p class="eyebrow">10 / ENGINEERING</p><h2>CSS architecture</h2></div><p>Organized layers and modular SCSS make the system easier to extend.</p></div>
+          <article class="panel architecture-panel">
+            <div><span class="architecture-number">01</span><div><h3>Abstracts</h3><p>Tokens, functions, mixins and shared Sass helpers. No CSS output should be generated here unless intentionally needed.</p><code>abstracts/_tokens.scss</code></div></div>
+            <div><span class="architecture-number">02</span><div><h3>Base</h3><p>Reset rules, document defaults, typography and global element styling.</p><code>base/_reset.scss · base/_typography.scss</code></div></div>
+            <div><span class="architecture-number">03</span><div><h3>Layout</h3><p>Page-level structure such as the header, sidebar, grid and content container.</p><code>layout/_header.scss · layout/_sidebar.scss</code></div></div>
+            <div><span class="architecture-number">04</span><div><h3>Components</h3><p>Independent, reusable UI patterns using BEM naming and limited selector nesting.</p><code>components/_buttons.scss · components/_cards.scss</code></div></div>
+            <div><span class="architecture-number">05</span><div><h3>Themes & utilities</h3><p>Theme-specific semantic values and small helper classes.</p><code>themes/_themes.scss · utilities/_utilities.scss</code></div></div>
+          </article>
+          <div class="demo-grid demo-grid--two architecture-notes">
+            <article class="panel"><h3>Isolation concepts</h3><p><b>CSS Modules:</b> build tooling scopes class names to a module to reduce naming collisions.</p><p><b>Shadow DOM:</b> encapsulates a component's DOM and styles. Global selectors generally do not cross its boundary.</p><p><b>Custom properties:</b> inherited CSS variables can pass theme values into components and shadow trees.</p></article>
+            <article class="panel"><h3>Responsive strategy</h3><p><b>Media queries</b> are suitable for page layout changes and device preferences such as reduced motion.</p><p><b>Container queries</b> are suitable when a reusable component changes based on the space available to it, regardless of viewport width.</p><p><b>@supports</b> detects browser feature support before applying enhanced styles.</p></article>
+          </div>
+        </section>
+
+        <section class="content-section section-anchor" id="documentation">
+          <div class="section-heading"><div><p class="eyebrow">11 / GUIDELINES</p><h2>Usage & documentation</h2></div><p>Shared rules help teams use components consistently.</p></div>
+          <article class="panel guidelines">
+            <h3>Naming convention</h3><p>Use BEM: <code>.block__element--modifier</code>. A block is a standalone component, an element belongs to that block, and a modifier changes its appearance or state.</p>
+            <h3>Component states</h3><p>Document default, hover, focus-visible, active, disabled, loading, success and error states where relevant. Never rely on color alone to communicate meaning.</p>
+            <h3>Maintainability rules</h3><ul><li>Prefer design tokens over arbitrary values.</li><li>Avoid unnecessary <code>!important</code> and high-specificity selectors.</li><li>Keep nesting shallow and selectors independent.</li><li>Remove unused rules and avoid duplicate declarations.</li><li>Use semantic HTML and accessible labels.</li></ul>
+            <h3>Feature detection example</h3><pre><code>@supports (display: grid) {
+  .layout { display: grid; }
+}</code></pre>
+            <h3>Container query example</h3><pre><code>.card-container { container-type: inline-size; }
+@container (min-width: 32rem) {
+  .profile-card { grid-template-columns: auto 1fr; }
+}</code></pre>
+            <h3>Entry transition example</h3><pre><code>.dialog[open] {
+  opacity: 1;
+  @starting-style { opacity: 0; }
+}</code></pre>
+          </article>
+        </section>
+
+        <footer class="footer"><a class="brand" href="#overview"><span class="brand__mark">F</span><span>forma<span class="brand__suffix">.system</span></span></a><span>Built as a reusable CSS design system · 2026</span><a href="#overview">Back to top ↑</a></footer>
+      </main>
+    </div>
+
+    <dialog class="modal" id="demo-modal">
+      <div class="modal__header"><div><span class="eyebrow">FORMA COMPONENT</span><h2>Ready to get started?</h2></div><button class="icon-button" id="close-modal" aria-label="Close modal">×</button></div>
+      <p class="text-muted">This is an example modal dialog. It uses the native dialog element for accessible focus and keyboard behavior.</p>
+      <div class="modal__actions"><button class="button button--outline" id="cancel-modal">Cancel</button><button class="button button--primary" id="confirm-modal">Continue</button></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
